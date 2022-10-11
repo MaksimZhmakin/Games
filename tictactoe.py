@@ -11,11 +11,8 @@ def tic_tac_toe():
              ['2', ' ', ' ', ' '],
              ['3', ' ', ' ', ' ']
     ]
-    
     print('\n'.join(map('  '.join, field)))
-    
     while True:
-        
         while True:
                 
             x = input('Ход крестика. Введите через один пробел координаты клетки для крестика (сначала координата по '
@@ -23,7 +20,9 @@ def tic_tac_toe():
                       'затем по горизонтали): ')
             
             if re.match(r'^[1-3]\s[1-3]$', x):
-                field[int(x[0])][int(x[2])] = 'x'
+                if ' ' in field[int(x[0])][int(x[2])]: 
+                    field[int(x[0])][int(x[2])] = 'x'   
+                else: print('Ещё есть пустые ячейки\n')    
                 print('\n'.join(map('  '.join, field)))
                 if 'x' in [field[1][1]] and 'x' in [field[1][2]] and 'x' in [field[1][3]] or \
                     'x' in [field[2][1]] and 'x' in [field[2][2]] and 'x' in [field[2][3]] or \
@@ -48,7 +47,9 @@ def tic_tac_toe():
                       'затем по горизонтали): ')
         
             if re.match(r'^[1-3]\s[1-3]$', x):
-                field[int(x[0])][int(x[2])] = 'o'
+                if ' ' in field[int(x[0])][int(x[2])]: 
+                    field[int(x[0])][int(x[2])] = 'o'
+                else: print('Ещё есть пустые ячейки\n')     
                 print('\n'.join(map('  '.join, field)))
                 if 'o' in [field[1][1]] and 'o' in [field[1][2]] and 'o' in [field[1][3]] or \
                     'o' in [field[2][1]] and 'o' in [field[2][2]] and 'o' in [field[2][3]] or \
