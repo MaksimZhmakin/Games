@@ -11,8 +11,11 @@ def tic_tac_toe():
              ['2', ' ', ' ', ' '],
              ['3', ' ', ' ', ' ']
     ]
+    
+    print('\n'.join(map('  '.join, field)))
+    
     while True:
-        print('\n'.join(map('  '.join, field)))
+        
         while True:
                 
             x = input('Ход крестика. Введите через один пробел координаты клетки для крестика (сначала координата по '
