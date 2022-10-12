@@ -24,14 +24,11 @@ def tic_tac_toe():
                 if ' ' in field[int(x[0])][int(x[2])]:
                     field[int(x[0])][int(x[2])] = 'x'
                     print('\n'.join(map('  '.join, field)))
-                    if 'x' in [field[1][1]] and 'x' in [field[1][2]] and 'x' in [field[1][3]] or \
-                            'x' in [field[2][1]] and 'x' in [field[2][2]] and 'x' in [field[2][3]] or \
-                            'x' in [field[3][1]] and 'x' in [field[3][2]] and 'x' in [field[3][3]] or \
-                            'x' in [field[1][1]] and 'x' in [field[2][1]] and 'x' in [field[3][1]] or \
-                            'x' in [field[1][2]] and 'x' in [field[2][2]] and 'x' in [field[3][2]] or \
-                            'x' in [field[1][3]] and 'x' in [field[2][3]] and 'x' in [field[3][3]] or \
-                            'x' in [field[1][1]] and 'x' in [field[2][2]] and 'x' in [field[3][3]] or \
-                            'x' in [field[3][1]] and 'x' in [field[2][2]] and 'x' in [field[1][3]]:
+                    if all(['x' in field[1][1], 'x' in field[1][2], 'x' in field[1][3]]) or \
+                       all(['x' in field[2][1], 'x' in field[2][2], 'x' in field[2][3]]) or \
+                       all(['x' in field[3][1], 'x' in field[3][2], 'x' in field[3][3]]) or \
+                       all(['x' in field[1][1], 'x' in field[2][2], 'x' in field[3][3]]) or \
+                       all(['x' in field[3][1], 'x' in field[2][2], 'x' in field[3][1]]):
                         print('Крестики выиграли')
                         exit()
                     if not ' ' in field[0][1:] and ' ' not in field[1] and ' ' not in field[2] and ' ' not in field[3]:
@@ -56,14 +53,11 @@ def tic_tac_toe():
                 if ' ' in field[int(x[0])][int(x[2])]:
                     field[int(x[0])][int(x[2])] = 'o'
                     print('\n'.join(map('  '.join, field)))
-                    if 'o' in [field[1][1]] and 'o' in [field[1][2]] and 'o' in [field[1][3]] or \
-                            'o' in [field[2][1]] and 'o' in [field[2][2]] and 'o' in [field[2][3]] or \
-                            'o' in [field[3][1]] and 'o' in [field[3][2]] and 'o' in [field[3][3]] or \
-                            'o' in [field[1][1]] and 'o' in [field[2][1]] and 'o' in [field[3][1]] or \
-                            'o' in [field[1][2]] and 'o' in [field[2][2]] and 'o' in [field[3][2]] or \
-                            'o' in [field[1][3]] and 'o' in [field[2][3]] and 'o' in [field[3][3]] or \
-                            'o' in [field[1][1]] and 'o' in [field[2][2]] and 'o' in [field[3][3]] or \
-                            'o' in [field[3][1]] and 'o' in [field[2][2]] and 'o' in [field[1][3]]:
+                    if all(['o' in field[1][1], 'o' in field[1][2], 'o' in field[1][3]]) or \
+                       all(['o' in field[2][1], 'o' in field[2][2], 'o' in field[2][3]]) or \
+                       all(['o' in field[3][1], 'o' in field[3][2], 'o' in field[3][3]]) or \
+                       all(['o' in field[1][1], 'o' in field[2][2], 'o' in field[3][3]]) or \
+                       all(['o' in field[3][1], 'o' in field[2][2], 'o' in field[3][1]]):
                         print('Нолики выиграли')
                         exit()
                     if not ' ' in field[0][1:] and ' ' not in field[1] and ' ' not in field[2] and ' ' not in field[3]:
