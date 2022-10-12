@@ -6,7 +6,7 @@ def tic_tac_toe():
     import re
     
     field = [
-             ['+', '1',  '2', '3'], 
+             [' ', '1',  '2', '3'], 
              ['1', ' ', ' ', ' '],
              ['2', ' ', ' ', ' '],
              ['3', ' ', ' ', ' ']
@@ -34,7 +34,7 @@ def tic_tac_toe():
                     'x' in [field[3][1]] and 'x' in [field[2][2]] and 'x' in [field[1][3]]:
                     print('Крестики выиграли')
                     exit()
-                if not ' ' in field[0] and ' ' not in field[1] and ' ' not in field[2] and ' ' not in field[3]: 
+                if not ' ' in field[0][1:] and ' ' not in field[1] and ' ' not in field[2] and ' ' not in field[3]: 
                     print('Ничья') 
                     exit()
     
@@ -61,7 +61,7 @@ def tic_tac_toe():
                     'o' in [field[3][1]] and 'o' in [field[2][2]] and 'o' in [field[1][3]]:
                     print('Нолики выиграли')
                     exit()
-                if not ' ' in field[0] and ' ' not in field[1] and ' ' not in field[2] and ' ' not in field[3]: 
+                if not ' ' in field[0][1:] and ' ' not in field[1] and ' ' not in field[2] and ' ' not in field[3]: 
                     print('Ничья')
                     exit()
                 break
