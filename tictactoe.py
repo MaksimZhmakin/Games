@@ -1,9 +1,13 @@
+def match(sample):
+    import re
+    return re.match(r'^[1-3]\s[1-3]$', sample)
+
 def tic_tac_toe():
     '''
     Классическая игра в крестики-нолики. Игроки по очереди вводят координаты ходов
 
     '''
-    import re
+    
     
     field = [
         [' ', '1', '2', '3'],
@@ -20,7 +24,7 @@ def tic_tac_toe():
                 'вертикали, '
                 'затем по горизонтали): ')
             
-            if re.match(r'^[1-3]\s[1-3]$', x):
+            if match(x):
                 if ' ' in field[int(x[0])][int(x[2])]:
                     field[int(x[0])][int(x[2])] = 'x'
                     print('\n'.join(map('  '.join, field)))
@@ -52,7 +56,7 @@ def tic_tac_toe():
                       'вертикали, '
                       'затем по горизонтали): ')
             
-            if re.match(r'^[1-3]\s[1-3]$', x):
+            if match(x):
                 if ' ' in field[int(x[0])][int(x[2])]:
                     field[int(x[0])][int(x[2])] = 'o'
                     print('\n'.join(map('  '.join, field)))
