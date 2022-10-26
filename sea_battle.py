@@ -19,8 +19,7 @@ class Ship_3:
 
 class Validator:
     def __init__(self, ship_1: Ship_1, ship_2: Ship_2, ship_3: Ship_3):
-        print('   |', *[f' {i} |' for i in range(1, 7)], sep='')
-        [print(''.join(j)) for i in range(1, 7) for j in [[str(i), '  | O |', ' O |', ' O |', ' O |', ' O |', ' O |']]]
+       
         self.coord = []
         for _ in [*ship_1.coord, *ship_2.coord, *ship_3.coord]:
             self.coord.append(_)
@@ -108,10 +107,7 @@ class Validator:
                                            (ship_3.coord[2][0] + 1, ship_3.coord[2][1]),
                                            (ship_3.coord[2][0] + 1, ship_3.coord[2][1] + 1), (ship_3.coord[2][0],
                                                                                               ship_3.coord[2][1] + 1)])
-        print('\n')
-        print(self.coord, end='\n\n')
-        print(self.neighboring_cells)
-        print('\n')
+        
         for i in self.coord:
             for j in self.neighboring_cells:
                 if i == j:
@@ -147,7 +143,6 @@ class CompLayout:
 
         ship_3 = []
         all_points_list = list(all_points)
-        print(f'до цикла трёхпалубного {all_points_list}')
         count = 0
         for item in range(len(all_points) - 1):
             ship_3.append(all_points_list[item])
@@ -163,7 +158,6 @@ class CompLayout:
                 continue
 
         if len(ship_3) == 0:
-            count = 1
             for item in range(len(all_points) - 1):
                 ship_3.append(all_points_list[item])
                 for subitem in all_points_list[item + 1:]:
@@ -177,9 +171,7 @@ class CompLayout:
                     ship_3.clear()
                     continue
 
-        print(f'before {len(all_points)}--{all_points=}')
         all_points = set(all_points_list).difference(ship_3)
-        print(f'after {len(all_points)} {all_points=}')
         ship_3.sort()
 
         ship_2 = []
@@ -215,7 +207,6 @@ class CompLayout:
                         (ship_2[1][0] + 1, ship_2[1][1] + 1),
                         (ship_2[1][0], ship_2[1][1] + 1)]
 
-        print(f'count around {count}---{around_cells} ')
 
         all_points_list = list(set(all_points_list).difference(around_cells))
 
@@ -231,8 +222,6 @@ class CompLayout:
             else:
                 ship_2.clear()
                 continue
-        print(f'{ship_3=}')
-        print(f'{ship_2=}')
         
         return [*ship_1, *ship_3, *ship_2]
         
@@ -241,14 +230,11 @@ class Board:
     _comp_table = {i: ['   |'] * 7 for i in range(1, 7)}
     
     def __init__(self, ships: Validator):
-        self.comp_cells = [(4, 1), (4, 2), (4, 3), (5, 6), (6, 6), (1, 3), (2, 3),
-                                                           (3, 6), (2, 1), (6, 2), (1, 1)]
         self.user_cells = ships.coord
         self.comp_cells = CompLayout.init()
         for p in self.user_cells:
             self._user_table[p[0]][p[1]] = ' K |'
-        for c in self.comp_cells:
-            self._comp_table[c[0]][c[1]] = ' K |'
+        
         self._display_user_table()    
         print('\nКорабли расставлены нормально. Начинаем игру')
             
